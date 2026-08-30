@@ -1,1 +1,58 @@
+version: 2
 
+models:
+  - name: stg_raw__STUDENTS
+    description: >
+      Modèle de staging nettoyant et standardisant les données brutes
+      des étudiants avant leur utilisation dans les modèles analytiques.
+
+    columns:
+      - name: USER_ID
+        description: >
+          Identifiant technique unique de l'étudiant.
+        data_tests:
+          - not_null
+
+      - name: PATH_CATEGORY_NAME
+        description: >
+          Catégorie du parcours suivi par l'étudiant.
+        data_tests:
+          - not_null
+
+      - name: AGE_GROUP
+        description: >
+          Classe d'âge de l'étudiant au début du parcours.
+        data_tests:
+          - not_null
+
+      - name: GENDER
+        description: >
+          Genre standardisé en F, M, NON_RENSEIGNE ou AUTRE.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - F
+                  - M
+                  - NON_RENSEIGNE
+                  - AUTRE
+
+      - name: REGION
+        description: >
+          Région de résidence déclarée par l'étudiant.
+        data_tests:
+          - not_null
+
+      - name: YEAR_PATH_STARTED
+        description: >
+          Année de début du parcours.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - 2022
+                  - 2023
+                  - 2024
+                  - 2025
