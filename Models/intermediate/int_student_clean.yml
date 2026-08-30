@@ -1,1 +1,39 @@
+version: 2
 
+models:
+  - name: int_students_clean
+    description: >
+      Modèle intermédiaire contenant les données étudiantes nettoyées
+      et préparées avant leur agrégation dans les tables analytiques.
+
+    columns:
+      - name: USER_ID
+        description: Identifiant technique de l'étudiant.
+        data_tests:
+          - not_null
+
+
+      - name: PATH_CATEGORY_NAME
+        description: Catégorie du parcours suivi.
+        data_tests:
+          - not_null
+
+      - name: AGE_GROUP
+        description: Classe d'âge de l'étudiant.
+        data_tests:
+          - not_null
+
+      - name: GENDER
+        description: Genre standardisé.
+        data_tests:
+          - not_null
+
+      - name: REGION
+        description: Région de résidence de l'étudiant.
+        data_tests:
+          - not_null
+
+      - name: YEAR_PATH_STARTED
+        description: Année de début du parcours.
+        data_tests:
+          - not_null
