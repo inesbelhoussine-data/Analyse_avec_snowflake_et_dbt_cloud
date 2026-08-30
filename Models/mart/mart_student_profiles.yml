@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: mart_student_profiles
+    description: >
+      Table analytique agrégeant le nombre d'étudiants selon l'année,
+      la région, la tranche d'âge, le genre et la catégorie de parcours.
+
+    columns:
+      - name: YEAR_PATH_STARTED
+        description: Année de début du parcours.
+        data_tests:
+          - not_null
+
+      - name: REGION
+        description: Région de résidence.
+        data_tests:
+          - not_null
+
+      - name: AGE_GROUP
+        description: Classe d'âge.
+        data_tests:
+          - not_null
+
+      - name: GENDER
+        description: Genre standardisé.
+        data_tests:
+          - not_null
+
+      - name: PATH_CATEGORY_NAME
+        description: Catégorie de parcours.
+        data_tests:
+          - not_null
+
+      - name: POPULATION
+        description: >
+          Population régionale INSEE 2025. La valeur peut être nulle
+          lorsqu'aucune correspondance fiable n'est disponible    
+
+      - name: STUDENT_COUNT
+        description: Nombre d'étudiants pour la combinaison de dimensions.
+        data_tests:
+          - not_null
+
+      - name: STUDENTS_PER_100K_INHABITANTS
+        description: >
+          Nombre d'étudiants pour 100 000 habitants dans la région,
+          calculé à partir de la population INSEE 2025.   
