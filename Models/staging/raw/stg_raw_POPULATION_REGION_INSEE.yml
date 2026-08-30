@@ -1,1 +1,14 @@
+version: 2
 
+models:
+  - name: stg_raw_POPULATION_REGION_INSEE
+    description: Données de population par région issues de l'INSEE.
+
+    columns:
+      - name: REGIONS
+        data_tests:
+          - not_null
+
+      - name: POPULATION
+        data_tests:
+          - not_null
